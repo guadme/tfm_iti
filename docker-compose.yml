@@ -1,8 +1,55 @@
 version: '2'
 
-# Infrastructure required for the "EDEM Tratamimento del dato" course.
-# Authors: Roberto López
+# Infrastructure required for the Data Analytics Course
+# Authors: Roberto López 
 services:
+  
+  # Elasticsearch: Data Storage and Search Engine
+  elasticsearch:
+    image: 'elasticsearch:7.3.0'
+    hostname: elasticsearch
+    container_name: elasticsearch
+    ports:
+      - '9200:9200'
+      - '9300:9300'
+    environment:
+      - discovery.type=single-node
+      
+  # Logstash: Elastic ingestion tool
+  logstash:
+    image: 'logstash:7.3.0'
+    hostname: logstash
+    container_name: logstash
+    ports:
+      - '9600:9600'
+    volumes:
+      - ./data:/tmp/datasets
+      - ./config/pipelines.yml:/usr/share/logstash/config/pipelines.yml
+    depends_on:
+      - elasticsearch
+      
+  # FileBeat: Elastic ingestion tool
+  filebeat:
+    image: 'docker.elastic.co/beats/filebeat:7.3.0'
+    hostname: filebeat
+    container_name: filebeat
+    volumes:
+      - ./data:/tmp/datasets
+    depends_on:
+      - elasticsearch
+
+  # Kibana: Elasticsearch Dashboarding
+  kibana:
+    image: 'kibana:7.3.0'
+    hostname: kibana
+    container_name: kibana
+    ports:
+      - '5601:5601'
+    environment:
+      - elasticsearch.hosts=http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
+      
   # Jupyter: Notebook Analytics
   jupyter:
     image: 'jupyter/datascience-notebook:latest'
@@ -12,4 +59,17 @@ services:
       - JUPYTER_TOKEN=edem
     ports:
       - '8888:8888'
+  
+  # cAdvisor: Docker Monitor
+  monitor:
+    image: 'google/cadvisor:latest'
+    hostname: monitor
+    ports:
+      - '8080:8080'
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
       
