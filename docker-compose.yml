@@ -1,0 +1,15 @@
+version: '2'
+
+# Infrastructure required for the "EDEM Tratamimento del dato" course.
+# Authors: Roberto López
+services:
+  # Jupyter: Notebook Analytics
+  jupyter:
+    image: 'jupyter/datascience-notebook:latest'
+    hostname: jupyter
+    container_name: jupyter
+    environment:
+      - JUPYTER_TOKEN=edem
+    ports:
+      - '8888:8888'
+      
