@@ -27,16 +27,6 @@ services:
       - ./config/pipelines.yml:/usr/share/logstash/config/pipelines.yml
     depends_on:
       - elasticsearch
-      
-  # FileBeat: Elastic ingestion tool
-  filebeat:
-    image: 'docker.elastic.co/beats/filebeat:7.3.0'
-    hostname: filebeat
-    container_name: filebeat
-    volumes:
-      - ./data:/tmp/datasets
-    depends_on:
-      - elasticsearch
 
   # Kibana: Elasticsearch Dashboarding
   kibana:
@@ -59,18 +49,6 @@ services:
       - JUPYTER_TOKEN=edem
     ports:
       - '8888:8888'
-  
-  # cAdvisor: Docker Monitor
-  monitor:
-    image: 'google/cadvisor:latest'
-    hostname: monitor
-    ports:
-      - '8080:8080'
-    volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:rw
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
-      - /dev/disk/:/dev/disk:ro
+
 
 
