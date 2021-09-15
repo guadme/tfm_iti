@@ -4,3 +4,6 @@
   
 - pipeline.id: training
   path.config: "/tmp/datasets/training/training.conf"
+
+- pipeline.id: test
+  path.config: "/tmp/datasets/test/test.conf"
