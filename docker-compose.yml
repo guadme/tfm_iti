@@ -1,7 +1,7 @@
 version: '2'
 
-# Infrastructure required for the Data Analytics Course
-# Authors: Roberto López 
+# Infrastructure required for the EDEM Data Analytics TFM
+# Authors: Guillermo Adam, Yaling Hu & Ines Munoz 
 services:
   
   # Elasticsearch: Data Storage and Search Engine
@@ -15,18 +15,8 @@ services:
     environment:
       - discovery.type=single-node
       
-  # Logstash: Elastic ingestion tool
-  logstash:
-    image: 'logstash:7.3.0'
-    hostname: logstash
-    container_name: logstash
-    ports:
-      - '9600:9600'
-    volumes:
-      - ./data:/tmp/datasets
-      - ./config/pipelines.yml:/usr/share/logstash/config/pipelines.yml
-    depends_on:
-      - elasticsearch
+  # Kafka: Ingestion tool
+
 
   # Kibana: Elasticsearch Dashboarding
   kibana:
