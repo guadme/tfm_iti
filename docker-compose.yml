@@ -1,7 +1,11 @@
 version: '2'
 
+<<<<<<< HEAD
 # Infrastructure required for the EDEM Data Analytics TFM
 # Authors: Guillermo Adam, Yaling Hu & Ines Munoz 
+=======
+# Infrastructure required for ITI TFM
+# Authors: Yaling Ines Guille
 services:
   
   # Elasticsearch: Data Storage and Search Engine
@@ -40,5 +44,27 @@ services:
     ports:
       - '8888:8888'
 
-
+  # Zookeeper: kafka helper
+  zookeeper:
+    image: 'bitnami/zookeeper:latest'
+    container_name: zookeeper
+    ports:
+      - '2181:2181'
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+  
+  # Kafka: topics
+  kafka:
+    image: 'bitnami/kafka:latest'
+    container_name: kakfa
+    ports:
+      - '9092:9092'
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:9092
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    depends_on:
+      - zookeeper 
 
