@@ -1,11 +1,7 @@
 version: '2'
 
-<<<<<<< HEAD
 # Infrastructure required for the EDEM Data Analytics TFM
 # Authors: Guillermo Adam, Yaling Hu & Ines Munoz 
-=======
-# Infrastructure required for ITI TFM
-# Authors: Yaling Ines Guille
 services:
   
   # Elasticsearch: Data Storage and Search Engine
@@ -19,9 +15,6 @@ services:
     environment:
       - discovery.type=single-node
       
-  # Kafka: Ingestion tool
-
-
   # Kibana: Elasticsearch Dashboarding
   kibana:
     image: 'kibana:7.3.0'
@@ -53,7 +46,7 @@ services:
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
   
-  # Kafka: topics
+  # Kafka: ingestion tool
   kafka:
     image: 'bitnami/kafka:latest'
     container_name: kakfa
