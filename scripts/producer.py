@@ -7,7 +7,6 @@ Created on Wed Sep 15 18:23:50 2021
 
 import time
 import json
-from data import get_registered_user
 from data import get_logs
 from data import json_serializer
 from kafka import KafkaProducer
