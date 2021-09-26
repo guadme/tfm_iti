@@ -47,7 +47,7 @@ services:
   # Kafka: topics
   kafka:
     image: 'bitnami/kafka:latest'
-    container_name: kakfa
+    container_name: kafka
     ports:
       - '9092:9092'
     environment:
