@@ -7,6 +7,7 @@ Created on Wed Sep 15 18:23:50 2021
 
 import time
 import json
+import pandas as pd
 from data import get_logs
 from data import json_serializer
 from kafka import KafkaProducer
@@ -25,7 +26,8 @@ if __name__ == "__main__":
     while 1 == 1:
         for i in range(len(logs.index)):
             current_log = logs.to_dict('records')[i]
-            print(current_log)
-            producer.send("logs-iti", current_log)
-            time.sleep(5)
+            if(not pd.isna(current_log['payload'])):
+                print(current_log)
+                producer.send("logs-iti", current_log)
+                time.sleep(5)
         
