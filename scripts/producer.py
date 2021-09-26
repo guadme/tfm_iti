@@ -18,7 +18,6 @@ producer = KafkaProducer(bootstrap_servers=['localhost:9092'],
                          api_version=(0,11,5),
                          value_serializer=json_serializer)
 
-#registered_user = get_registered_user()
 logs = get_logs()
 
 
