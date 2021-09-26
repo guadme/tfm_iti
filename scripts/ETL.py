@@ -20,11 +20,10 @@ with open(pickle_filename, "rb") as file:
 from elasticsearch import Elasticsearch
 import requests
 
-es = Elasticsearch('http://elasticsearch:9200')
-requests.put('http://elasticsearch:9200/logs-iti')
+es = Elasticsearch('http://localhost:9200')
+requests.put('http://localhost:9200/logs-iti')
 
-for i in range(size):
-    requests.post('http://elasticsearch:9200/logs-clean/doc/',json=document[str(i)])
+from datetime import datetime
 
 for message in consumer:
     obj = json.loads(message.value.decode('utf-8'))
@@ -37,6 +36,8 @@ for message in consumer:
     
     obj["prediction"] = prediction #add the prediction to the dictionary
     
+    obj["timestamp"] = str(datetime.now())
+    
     json_doc = json.dumps(obj, indent = 4)#Convert dict to json
     
-    requests.post('http://elasticsearch:9200/logs-iti/doc/',json=json_doc) #post into elasticsearch
+    requests.post('http://localhost:9200/logs-iti/doc/',json=json_doc) #post into elasticsearch
