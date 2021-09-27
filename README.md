@@ -23,13 +23,13 @@ docker-compose up -d
 docker exec -it {kafkaID} /bin/sh
 
 $ cd opt/bitnami/kafka/bin
-$ kafka-topics.sh -- create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic logs-iti
+$ kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic logs-iti
 ```
 
 4 - Check if the topic has been created.
 
 ```sh
-$ kafka-topics.sh --listr --zookeeper zookeeper:2181
+$ kafka-topics.sh --list --zookeeper zookeeper:2181
 ```
 
 5- Create data directory in jupyter container where scripts will be executed.
