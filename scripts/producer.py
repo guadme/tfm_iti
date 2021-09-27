@@ -15,7 +15,7 @@ from kafka import KafkaProducer
 
 
 
-producer = KafkaProducer(bootstrap_servers=['localhost:9092'],
+producer = KafkaProducer(bootstrap_servers=['172.19.0.6:9092'],
                          api_version=(0,11,5),
                          value_serializer=json_serializer)
 
