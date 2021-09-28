@@ -1,2 +1,2 @@
-pip install kafka-python
-pip install elasticsearch
+kafka-python
+elasticsearch

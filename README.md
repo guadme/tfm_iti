@@ -63,7 +63,7 @@ docker cp "TR_traffic_dataset.csv" {jupyterID}:"home/jovyan/work/data"
 ```sh
 docker exec -it {jupyterID} /bin/sh
 $ cd work
-$ python requirements.txt
+$ pip install -r requirements.txt
 ```
 
 8- Run python scripts
