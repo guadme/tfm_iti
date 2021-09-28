@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Sep 15 22:18:39 2021
 
-@author: guill
+Necessary functions definition
+
 """
 import pandas as pd
 import json
