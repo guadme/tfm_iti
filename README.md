@@ -1,13 +1,10 @@
 # Master Data Analytics EDEM - Trabajo Fin de Master
 
-## ITI (Instituto Tecnológico de Informática) 
-
-### RETO   
-**Procesamiento y clasificación de logs u otro tipo de ficheros**  
-Realizar un procesamiento y análisis de distintos tipos de ficheros, por ejemplo logs, que aporten información de estado del sistema con el objetivo de diagnosticar el estado actual y predecir futuros comportamientos.  
+## Challenge from ITI (Instituto Tecnológico de Informática) 
+**Processing and clasification of logs or other types of files**  
 
 
-## Equipo
+## Team
 
 * [Guillermo Adam Merino](https://www.linkedin.com/in/guillermo-adam/)
 * [Inés Muñoz Arnau](https://www.linkedin.com/in/in%C3%A9s-mu%C3%B1oz-arnau-91b068177/)
@@ -85,8 +82,6 @@ $ pip install -r requirements.txt
 docker exec -it {jupyterID} /bin/sh
 $ cd work
 $ python data.py
-$ python model.py
-$ python consumer.py
 $ python ETL.py
 
 //In another window
