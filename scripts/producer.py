@@ -14,10 +14,10 @@ from kafka import KafkaProducer
 
 
 
-producer = KafkaProducer(bootstrap_servers=['localhost:9092'],
+producer = KafkaProducer(bootstrap_servers=['kafka:9092'],
                          api_version=(0,11,5),
                          value_serializer=json_serializer)
-
+print("....Starting Producer....")
 logs = get_logs()
 
 
@@ -26,8 +26,8 @@ if __name__ == "__main__":
         for i in range(len(logs.index)):
             current_log = logs.to_dict('records')[i]
             if(not pd.isna(current_log['payload'])):
-                print(current_log)
+                print("....Sending message...")
                 producer.send("logs-iti", current_log)
-                print("Message posted")
+                print("***Message posted***")
                 time.sleep(5)
         

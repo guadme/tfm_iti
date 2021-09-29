@@ -25,8 +25,8 @@ with open(pickle_filename, "rb") as file:
 
 #Connect to ELK
 
-es = Elasticsearch('http://localhost:9200')
-requests.put('http://localhost:9200/logs-iti')
+es = Elasticsearch('http://elasticsearch:9200')
+requests.put('http://elasticsearch:9200/logs-iti')
 
 print("Starting...")
 print("Waiting for messages")
@@ -48,6 +48,6 @@ for message in consumer:
     time= str(datetime.now().time())
     obj["timestamp"] = date+'T'+time #add timestamp to the dictionary for visualization purposes
         
-    requests.post('http://localhost:9200/logs-iti/doc/',json=obj) #post into elasticsearch
+    requests.post('http://elasticsearch:9200/logs-iti/doc/',json=obj) #post into elasticsearch
         
-    print("Message correctly processed and loaded to ELK")
+    print("Message successfully processed and loaded to ELK")

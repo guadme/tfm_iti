@@ -20,7 +20,7 @@ docker-compose up -d
 3- Create kafka topic called "logs-iti"
 
 ```sh
-docker exec -it {kafkaID} /bin/sh
+docker exec -it kafka /bin/sh
 
 $ cd opt/bitnami/kafka/bin
 $ kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic logs-iti
@@ -35,7 +35,7 @@ $ kafka-topics.sh --list --zookeeper zookeeper:2181
 5- Create data directory in jupyter container where scripts will be executed.
 
 ```sh
-docker exec -it {jupyterID} /bin/sh
+docker exec -it jupyter /bin/sh
 
 $ cd work
 $ mkdir data
@@ -46,22 +46,23 @@ $ mkdir data
 ```sh
 cd scripts
 
-docker cp "consumer.py" {juoyterID}:"home/jovyan/work"
-docker cp "data.py" {juoyterID}:"home/jovyan/work"
-docker cp "ETL.py" {juoyterID}:"home/jovyan/work"
-docker cp "model.py" {juoyterID}:"home/jovyan/work"
-docker cp "producer.py" {juoyterID}:"home/jovyan/work"
-docker cp "pickle_svm.pkl" {juoyterID}:"home/jovyan/work"
+docker cp "consumer.py" jupyter:"home/jovyan/work"
+docker cp "data.py" jupyter:"home/jovyan/work"
+docker cp "ETL.py" jupyter:"home/jovyan/work"
+docker cp "model.py" jupyter:"home/jovyan/work"
+docker cp "producer.py" jupyter:"home/jovyan/work"
+docker cp "pickle_svm.pkl" jupyter:"home/jovyan/work"
+docker cp "requirements.txt" jupyter:"home/jovyan/work"
 
 cd data
-docker cp "PD_traffic_dataset.csv" {jupyterID}:"home/jovyan/work/data"
-docker cp "TR_traffic_dataset.csv" {jupyterID}:"home/jovyan/work/data"
+docker cp "PD_traffic_dataset.csv" jupyter:"home/jovyan/work/data"
+docker cp "TR_traffic_dataset.csv" jupyter:"home/jovyan/work/data"
 ```
 
 7- Install necessary python modules
 
 ```sh
-docker exec -it {jupyterID} /bin/sh
+docker exec -it jupyter /bin/sh
 $ cd work
 $ pip install -r requirements.txt
 ```
@@ -81,3 +82,5 @@ $ python ETL.py
 docker exec -it {jupyterID} /bin/sh
 $ python producer.py
 ```
+
+9- Navigate to https://localhost:5601 to access Kibana and see the logs ingested in Elasticsearch 
