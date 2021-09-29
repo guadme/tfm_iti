@@ -1,5 +1,16 @@
-# TFM ITI
+# Master Data Analytics EDEM - Trabajo Fin de Master
 
+## ITI (Instituto Tecnológico de Informática) 
+
+** RETO ** Procesamiento y clasificación de logs u otro tipo de ficheros. 
+Realizar un procesamiento y análisis de distintos tipos de ficheros, por ejemplo logs, que aporten información de estado del sistema con el objetivo de diagnosticar el estado actual y predecir futuros comportamientos.  
+
+
+## Equipo
+
+* [Guillermo Adam Merino](https://www.linkedin.com/in/guillermo-adam/)
+* [Inés Muñoz Arnau](https://www.linkedin.com/in/in%C3%A9s-mu%C3%B1oz-arnau-91b068177/)
+* [Yaling Hu](https://www.linkedin.com/in/huyaling/)
 
 ## Installation
 
