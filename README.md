@@ -2,7 +2,8 @@
 
 ## ITI (Instituto Tecnológico de Informática) 
 
-** RETO ** Procesamiento y clasificación de logs u otro tipo de ficheros. 
+### RETO   
+**Procesamiento y clasificación de logs u otro tipo de ficheros**  
 Realizar un procesamiento y análisis de distintos tipos de ficheros, por ejemplo logs, que aporten información de estado del sistema con el objetivo de diagnosticar el estado actual y predecir futuros comportamientos.  
 
 
