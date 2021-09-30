@@ -4,13 +4,17 @@
 **Processing and clasification of logs or other types of files**  
 
 
-## Team
+## Team 🖥️ 
 
 * [Guillermo Adam Merino](https://www.linkedin.com/in/guillermo-adam/)
 * [Inés Muñoz Arnau](https://www.linkedin.com/in/in%C3%A9s-mu%C3%B1oz-arnau-91b068177/)
 * [Yaling Hu](https://www.linkedin.com/in/huyaling/)
 
-## Installation
+## Architecture ⛓️ 
+
+<img src="img/onpremise.PNG" width="800" height="300"/>
+
+## Installation 🛠️  
 
 Follow the steps to set up the enviroment.
 
