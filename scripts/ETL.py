@@ -19,7 +19,7 @@ warnings.filterwarnings("ignore")
 
 #Load trained model
 
-pickle_filename = "pickle_svm.pkl"
+pickle_filename = "pickle_dtc.pkl"
 with open(pickle_filename, "rb") as file: 
     pickle_model = pickle.load(file)
 

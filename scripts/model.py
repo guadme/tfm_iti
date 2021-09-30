@@ -114,9 +114,8 @@ print(conf_matrix)
 import pickle
 
 # Save best model to file in the current working directory
-pkl_filename = "pickle_svm.pkl"
+pkl_filename = "pickle_dtc.pkl"
 with open(pkl_filename, 'wb') as file:
-    pickle.dump(svm, file)
-
+    pickle.dump(dtc, file)
 
 """
