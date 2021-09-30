@@ -3,8 +3,8 @@
 ## Challenge from ITI (Instituto Tecnológico de Informática) 
 **Processing and clasification of logs or other types of files**  
 
-<img src="img/iti.PNG" width="210" height="117"/>
-<img src="img/edem.PNG" width="210" height="117"/>
+<img src="img/iti.png" width="210" height="117"/>
+<img src="img/edem.png" width="210" height="117"/>
 
 
 ## Team 🖥️ 
